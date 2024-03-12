@@ -16886,7 +16886,7 @@ weighted avg       0.93      0.84      0.88       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1685]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2326]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleMLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -16946,14 +16946,14 @@ weighted avg       0.93      0.84      0.88       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1833]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2346]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">triplet_dataset</span> <span class="o">=</span> <span class="n">TripletDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">preprocess_df</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">train_label</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
 
 <span class="n">input_dim</span> <span class="o">=</span> <span class="n">preprocess_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">output_dim</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">hidden_dim</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">output_dim</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">hidden_dim</span> <span class="o">=</span> <span class="mi">16</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">SimpleMLP</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span><span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">)</span>
 <span class="n">triplet_loss</span> <span class="o">=</span> <span class="n">TripletLoss</span><span class="p">()</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
@@ -16969,7 +16969,7 @@ weighted avg       0.93      0.84      0.88       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1834]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2347]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">200</span>
@@ -17017,206 +17017,206 @@ weighted avg       0.93      0.84      0.88       901
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>2100
-Epoch 1, Loss: 0.9705091398773771
-Epoch 2, Loss: 0.9338415852098754
-Epoch 3, Loss: 0.8964704049356056
-Epoch 4, Loss: 0.8632670451294292
-Epoch 5, Loss: 0.8786658427932046
-Epoch 6, Loss: 0.8395665992390026
-Epoch 7, Loss: 0.8313696772763224
-Epoch 8, Loss: 0.821030363892064
-Epoch 9, Loss: 0.8014714591430895
-Epoch 10, Loss: 0.7631638673218814
-Epoch 11, Loss: 0.7682466073469683
-Epoch 12, Loss: 0.7823213085983739
-Epoch 13, Loss: 0.7625769846367113
-Epoch 14, Loss: 0.7430421208793466
-Epoch 15, Loss: 0.7243740626356818
-Epoch 16, Loss: 0.739669228141958
-Epoch 17, Loss: 0.7513748985348325
-Epoch 18, Loss: 0.7249161235310815
-Epoch 19, Loss: 0.7612553862008181
-Epoch 20, Loss: 0.7245678657835181
-Epoch 21, Loss: 0.7212876862648762
-Epoch 22, Loss: 0.7305945465058992
-Epoch 23, Loss: 0.704435417597944
-Epoch 24, Loss: 0.720156601432598
-Epoch 25, Loss: 0.7038073819695096
-Epoch 26, Loss: 0.7100993489677255
-Epoch 27, Loss: 0.7289506833661686
-Epoch 28, Loss: 0.7088657445979841
-Epoch 29, Loss: 0.7032374676429864
-Epoch 30, Loss: 0.6721981967037375
-Epoch 31, Loss: 0.6747249622236599
-Epoch 32, Loss: 0.6964951911658952
-Epoch 33, Loss: 0.6807088003014073
-Epoch 34, Loss: 0.6836907877163454
-Epoch 35, Loss: 0.719158948822455
-Epoch 36, Loss: 0.6989906913403309
-Epoch 37, Loss: 0.7054700706944321
-Epoch 38, Loss: 0.7148063331842422
-Epoch 39, Loss: 0.7132173848874641
-Epoch 40, Loss: 0.7006263633569082
-Epoch 41, Loss: 0.6745735637166284
-Epoch 42, Loss: 0.6544471360517271
-Epoch 43, Loss: 0.6608334030165817
-Epoch 44, Loss: 0.7022962565674926
-Epoch 45, Loss: 0.6741585325111042
-Epoch 46, Loss: 0.6729725147738601
-Epoch 47, Loss: 0.6718959000074503
-Epoch 48, Loss: 0.6599877431537166
-Epoch 49, Loss: 0.6739670367855014
-Epoch 50, Loss: 0.6760205003348264
-Epoch 51, Loss: 0.6681224879893389
-Epoch 52, Loss: 0.6796667968684976
-Epoch 53, Loss: 0.6634814694072261
-Epoch 54, Loss: 0.657150439692266
-Epoch 55, Loss: 0.6840505288405851
-Epoch 56, Loss: 0.6658238136407101
-Epoch 57, Loss: 0.6425901515917345
-Epoch 58, Loss: 0.6437344411105821
-Epoch 59, Loss: 0.6565023895465967
-Epoch 60, Loss: 0.63144351541996
-Epoch 61, Loss: 0.6418539177287709
-Epoch 62, Loss: 0.6959125173814369
-Epoch 63, Loss: 0.6666101872017889
-Epoch 64, Loss: 0.6611039877840967
-Epoch 65, Loss: 0.6574625129049475
-Epoch 66, Loss: 0.6724511940370906
-Epoch 67, Loss: 0.6692474078048359
-Epoch 68, Loss: 0.65548493735718
-Epoch 69, Loss: 0.6321395915566068
-Epoch 70, Loss: 0.6243782224077167
-Epoch 71, Loss: 0.6262186998219201
-Epoch 72, Loss: 0.6451393993514957
-Epoch 73, Loss: 0.628893183036284
-Epoch 74, Loss: 0.6524768467202331
-Epoch 75, Loss: 0.6486530412327159
-Epoch 76, Loss: 0.65282416388844
-Epoch 77, Loss: 0.6420639929446307
-Epoch 78, Loss: 0.6552079252221368
-Epoch 79, Loss: 0.6135989657857202
-Epoch 80, Loss: 0.640779233340061
-Epoch 81, Loss: 0.6116839976924838
-Epoch 82, Loss: 0.6545342545617711
-Epoch 83, Loss: 0.6116734395424525
-Epoch 84, Loss: 0.6221528762217724
-Epoch 85, Loss: 0.646375214511698
-Epoch 86, Loss: 0.6424230978344426
-Epoch 87, Loss: 0.644753352710695
-Epoch 88, Loss: 0.6147777474287784
-Epoch 89, Loss: 0.6427931835254034
-Epoch 90, Loss: 0.6282380516781951
-Epoch 91, Loss: 0.6106354029792728
-Epoch 92, Loss: 0.6277253099463203
-Epoch 93, Loss: 0.620313136415048
-Epoch 94, Loss: 0.6224391383655143
-Epoch 95, Loss: 0.606403856566458
-Epoch 96, Loss: 0.6049477354143605
-Epoch 97, Loss: 0.6354166368643442
-Epoch 98, Loss: 0.608369426745357
-Epoch 99, Loss: 0.592527611689134
-Epoch 100, Loss: 0.6086821718649431
-Epoch 101, Loss: 0.6154095900781227
-Epoch 102, Loss: 0.6075717061758041
-Epoch 103, Loss: 0.611934480341998
-Epoch 104, Loss: 0.620367221308477
-Epoch 105, Loss: 0.6162333937756943
-Epoch 106, Loss: 0.6010757616975091
-Epoch 107, Loss: 0.6111662843913743
-Epoch 108, Loss: 0.62209142518766
-Epoch 109, Loss: 0.6357809639338291
-Epoch 110, Loss: 0.5918482058879101
-Epoch 111, Loss: 0.6009772496693062
-Epoch 112, Loss: 0.6413913748481057
-Epoch 113, Loss: 0.6237056503693262
-Epoch 114, Loss: 0.6159382489594546
-Epoch 115, Loss: 0.5966764322736047
-Epoch 116, Loss: 0.5962176923498963
-Epoch 117, Loss: 0.6123163718165774
-Epoch 118, Loss: 0.585154418240894
-Epoch 119, Loss: 0.5994040419658025
-Epoch 120, Loss: 0.6023172225916025
-Epoch 121, Loss: 0.6249316944317385
-Epoch 122, Loss: 0.626022504586162
-Epoch 123, Loss: 0.6009653887965463
-Epoch 124, Loss: 0.5752282016205065
-Epoch 125, Loss: 0.6438870023597371
-Epoch 126, Loss: 0.6175833335428527
-Epoch 127, Loss: 0.6426569300167488
-Epoch 128, Loss: 0.6034381208997784
-Epoch 129, Loss: 0.6207408272858822
-Epoch 130, Loss: 0.6129719475002
-Epoch 131, Loss: 0.5890400924465873
-Epoch 132, Loss: 0.6126163050983892
-Epoch 133, Loss: 0.6092707492185362
-Epoch 134, Loss: 0.6245384843963565
-Epoch 135, Loss: 0.6235598583113063
-Epoch 136, Loss: 0.6059934600736155
-Epoch 137, Loss: 0.5791201514728141
-Epoch 138, Loss: 0.5720028965310617
-Epoch 139, Loss: 0.5997476857719999
-Epoch 140, Loss: 0.6108909578937473
-Epoch 141, Loss: 0.6213260067231727
-Epoch 142, Loss: 0.5649052993817762
-Epoch 143, Loss: 0.6124739421136451
-Epoch 144, Loss: 0.6089206965583743
-Epoch 145, Loss: 0.605105968135776
-Epoch 146, Loss: 0.571778882633556
-Epoch 147, Loss: 0.5688591531731866
-Epoch 148, Loss: 0.5696059318654465
-Epoch 149, Loss: 0.6054489833839012
-Epoch 150, Loss: 0.6134966006784728
-Epoch 151, Loss: 0.5956377486387888
-Epoch 152, Loss: 0.6406064498605151
-Epoch 153, Loss: 0.6005500776298118
-Epoch 154, Loss: 0.5723853639580987
-Epoch 155, Loss: 0.5911630550117204
-Epoch 156, Loss: 0.6082296448223519
-Epoch 157, Loss: 0.5926691126642805
-Epoch 158, Loss: 0.6261871989929315
-Epoch 159, Loss: 0.5820299716609897
-Epoch 160, Loss: 0.5634096486098839
-Epoch 161, Loss: 0.5662970962849531
-Epoch 162, Loss: 0.5800127707647554
-Epoch 163, Loss: 0.5941809862852097
-Epoch 164, Loss: 0.5810045198057637
-Epoch 165, Loss: 0.5901207400090767
-Epoch 166, Loss: 0.607984900022998
-Epoch 167, Loss: 0.5906974352670439
-Epoch 168, Loss: 0.5756216843922933
-Epoch 169, Loss: 0.5684882542400649
-Epoch 170, Loss: 0.6036580724246574
-Epoch 171, Loss: 0.5825767815113068
-Epoch 172, Loss: 0.5930085615678267
-Epoch 173, Loss: 0.6041237779638984
-Epoch 174, Loss: 0.5773614825624408
-Epoch 175, Loss: 0.6005867624824698
-Epoch 176, Loss: 0.6237090333844676
-Epoch 177, Loss: 0.6183065717870538
-Epoch 178, Loss: 0.5959506341905305
-Epoch 179, Loss: 0.5874983176137462
-Epoch 180, Loss: 0.5887562880913416
-Epoch 181, Loss: 0.6012059689471216
-Epoch 182, Loss: 0.5589767920248436
-Epoch 183, Loss: 0.5832615219282381
-Epoch 184, Loss: 0.5855011732289286
-Epoch 185, Loss: 0.5985819909608725
-Epoch 186, Loss: 0.5874127334717548
-Epoch 187, Loss: 0.578964098384886
-Epoch 188, Loss: 0.5783856750437708
-Epoch 189, Loss: 0.5817772181648196
-Epoch 190, Loss: 0.5854291554653284
-Epoch 191, Loss: 0.5673897465070089
-Epoch 192, Loss: 0.6009811370661764
-Epoch 193, Loss: 0.5814728515617775
-Epoch 194, Loss: 0.5935344655405391
-Epoch 195, Loss: 0.5733680040998892
-Epoch 196, Loss: 0.5681059843663013
-Epoch 197, Loss: 0.5743693199121591
-Epoch 198, Loss: 0.5841169452125375
-Epoch 199, Loss: 0.585807885861758
-Epoch 200, Loss: 0.5667830963026393
+Epoch 1, Loss: 0.9294983925241412
+Epoch 2, Loss: 0.8904272444320448
+Epoch 3, Loss: 0.7913188247969656
+Epoch 4, Loss: 0.745512660705682
+Epoch 5, Loss: 0.7537751739675348
+Epoch 6, Loss: 0.7426900777852896
+Epoch 7, Loss: 0.7779243850346768
+Epoch 8, Loss: 0.7241416772206625
+Epoch 9, Loss: 0.6968468996611509
+Epoch 10, Loss: 0.668322890996933
+Epoch 11, Loss: 0.6718186975428553
+Epoch 12, Loss: 0.6481776223941282
+Epoch 13, Loss: 0.6401326936302763
+Epoch 14, Loss: 0.6336026972893513
+Epoch 15, Loss: 0.6070424584728299
+Epoch 16, Loss: 0.592646066438068
+Epoch 17, Loss: 0.5908761498602954
+Epoch 18, Loss: 0.5853944831725323
+Epoch 19, Loss: 0.6039056692159537
+Epoch 20, Loss: 0.5980391371430773
+Epoch 21, Loss: 0.5679694429943056
+Epoch 22, Loss: 0.5504133439425266
+Epoch 23, Loss: 0.5632466461622354
+Epoch 24, Loss: 0.5214131126801173
+Epoch 25, Loss: 0.5502643637133368
+Epoch 26, Loss: 0.5168968491030462
+Epoch 27, Loss: 0.5283311339038791
+Epoch 28, Loss: 0.524569669456193
+Epoch 29, Loss: 0.5157040583364891
+Epoch 30, Loss: 0.5342420922084288
+Epoch 31, Loss: 0.5276798127275525
+Epoch 32, Loss: 0.49346362618785916
+Epoch 33, Loss: 0.47445074130188336
+Epoch 34, Loss: 0.49312163347547705
+Epoch 35, Loss: 0.48531500272678607
+Epoch 36, Loss: 0.49954475010886334
+Epoch 37, Loss: 0.5057164918292653
+Epoch 38, Loss: 0.5124953921997186
+Epoch 39, Loss: 0.5111391472093987
+Epoch 40, Loss: 0.47114099675055704
+Epoch 41, Loss: 0.4655485676996636
+Epoch 42, Loss: 0.49611340508316504
+Epoch 43, Loss: 0.4803747223182158
+Epoch 44, Loss: 0.48624992054520233
+Epoch 45, Loss: 0.46221979730056995
+Epoch 46, Loss: 0.4704530026876565
+Epoch 47, Loss: 0.46716919857444184
+Epoch 48, Loss: 0.44901529022238473
+Epoch 49, Loss: 0.49214965917847375
+Epoch 50, Loss: 0.4799262678081339
+Epoch 51, Loss: 0.4498650806419777
+Epoch 52, Loss: 0.4482629671692848
+Epoch 53, Loss: 0.45945230916594015
+Epoch 54, Loss: 0.42468574823755206
+Epoch 55, Loss: 0.43176040504917956
+Epoch 56, Loss: 0.44088267105998413
+Epoch 57, Loss: 0.435879714335456
+Epoch 58, Loss: 0.4310424436222423
+Epoch 59, Loss: 0.401649852819515
+Epoch 60, Loss: 0.43098911530140677
+Epoch 61, Loss: 0.43366606307752203
+Epoch 62, Loss: 0.4308847956585162
+Epoch 63, Loss: 0.46739269093130575
+Epoch 64, Loss: 0.4158201715485616
+Epoch 65, Loss: 0.42846644895546365
+Epoch 66, Loss: 0.41748228285348776
+Epoch 67, Loss: 0.41032480267864285
+Epoch 68, Loss: 0.4115102785554799
+Epoch 69, Loss: 0.39581711759621446
+Epoch 70, Loss: 0.39424721806338336
+Epoch 71, Loss: 0.41330873808174423
+Epoch 72, Loss: 0.3955938077785752
+Epoch 73, Loss: 0.41645379296757956
+Epoch 74, Loss: 0.39765025020548794
+Epoch 75, Loss: 0.3984160493269111
+Epoch 76, Loss: 0.3705899801218148
+Epoch 77, Loss: 0.39736716494415747
+Epoch 78, Loss: 0.38943853884032276
+Epoch 79, Loss: 0.4013114065270532
+Epoch 80, Loss: 0.4170989482240243
+Epoch 81, Loss: 0.40158209362716385
+Epoch 82, Loss: 0.3957939664974357
+Epoch 83, Loss: 0.41726484285159543
+Epoch 84, Loss: 0.3653058646754785
+Epoch 85, Loss: 0.3697035506819234
+Epoch 86, Loss: 0.3740791501195142
+Epoch 87, Loss: 0.39259496037707187
+Epoch 88, Loss: 0.37978710053545056
+Epoch 89, Loss: 0.39120890922618634
+Epoch 90, Loss: 0.3666603917425329
+Epoch 91, Loss: 0.3656267308150277
+Epoch 92, Loss: 0.3880647077140483
+Epoch 93, Loss: 0.37568945934375125
+Epoch 94, Loss: 0.37675041276397125
+Epoch 95, Loss: 0.38241817232108477
+Epoch 96, Loss: 0.3734935795267423
+Epoch 97, Loss: 0.35388930570898636
+Epoch 98, Loss: 0.3642795273300373
+Epoch 99, Loss: 0.39938253977081994
+Epoch 100, Loss: 0.3831376376928705
+Epoch 101, Loss: 0.370981401340528
+Epoch 102, Loss: 0.3880305547605861
+Epoch 103, Loss: 0.34778188022248674
+Epoch 104, Loss: 0.3328569432664098
+Epoch 105, Loss: 0.3396563289517706
+Epoch 106, Loss: 0.34964370817849133
+Epoch 107, Loss: 0.34112159975550393
+Epoch 108, Loss: 0.34060767767104233
+Epoch 109, Loss: 0.3672440422303749
+Epoch 110, Loss: 0.30563576169537776
+Epoch 111, Loss: 0.33522927710278466
+Epoch 112, Loss: 0.31596585340572125
+Epoch 113, Loss: 0.3017886091362346
+Epoch 114, Loss: 0.30708307129415596
+Epoch 115, Loss: 0.3072756824619842
+Epoch 116, Loss: 0.3050930888363809
+Epoch 117, Loss: 0.33379342011881596
+Epoch 118, Loss: 0.30901798583341367
+Epoch 119, Loss: 0.31792155743548367
+Epoch 120, Loss: 0.32543671266599133
+Epoch 121, Loss: 0.3293686719103293
+Epoch 122, Loss: 0.329865754553766
+Epoch 123, Loss: 0.3116099667932951
+Epoch 124, Loss: 0.3105013027335658
+Epoch 125, Loss: 0.29995196041735733
+Epoch 126, Loss: 0.30326644523125706
+Epoch 127, Loss: 0.28752818997159146
+Epoch 128, Loss: 0.30157580000884604
+Epoch 129, Loss: 0.3189517668250835
+Epoch 130, Loss: 0.29439066463347635
+Epoch 131, Loss: 0.3324395470095403
+Epoch 132, Loss: 0.2811480817582571
+Epoch 133, Loss: 0.31922831375038985
+Epoch 134, Loss: 0.3159065374145002
+Epoch 135, Loss: 0.31195809082551434
+Epoch 136, Loss: 0.30733121965419163
+Epoch 137, Loss: 0.27430622392531595
+Epoch 138, Loss: 0.29822438842419424
+Epoch 139, Loss: 0.3078305557595961
+Epoch 140, Loss: 0.3178104485074679
+Epoch 141, Loss: 0.30640349966106994
+Epoch 142, Loss: 0.2854933160724062
+Epoch 143, Loss: 0.2977145953160344
+Epoch 144, Loss: 0.3104640624739907
+Epoch 145, Loss: 0.297270779356812
+Epoch 146, Loss: 0.29583006103833515
+Epoch 147, Loss: 0.31094738581415376
+Epoch 148, Loss: 0.27644518074212654
+Epoch 149, Loss: 0.2923285696711956
+Epoch 150, Loss: 0.2869418801909143
+Epoch 151, Loss: 0.2896376426021258
+Epoch 152, Loss: 0.2887089904962164
+Epoch 153, Loss: 0.285025521661296
+Epoch 154, Loss: 0.2857513192928199
+Epoch 155, Loss: 0.2896006249004241
+Epoch 156, Loss: 0.30405134357737773
+Epoch 157, Loss: 0.2770656334857146
+Epoch 158, Loss: 0.2844229703486869
+Epoch 159, Loss: 0.2873439792204987
+Epoch 160, Loss: 0.3064289007223014
+Epoch 161, Loss: 0.29945726184682414
+Epoch 162, Loss: 0.29507721734769415
+Epoch 163, Loss: 0.3059906086912661
+Epoch 164, Loss: 0.29532515889767447
+Epoch 165, Loss: 0.2732424388329188
+Epoch 166, Loss: 0.2645792221706925
+Epoch 167, Loss: 0.28784811970862473
+Epoch 168, Loss: 0.28552169928496535
+Epoch 169, Loss: 0.29104227030819113
+Epoch 170, Loss: 0.27972018193792214
+Epoch 171, Loss: 0.3037491976989038
+Epoch 172, Loss: 0.2859791053289717
+Epoch 173, Loss: 0.2933256583231868
+Epoch 174, Loss: 0.2693843302514517
+Epoch 175, Loss: 0.28236921820225136
+Epoch 176, Loss: 0.2786886270976428
+Epoch 177, Loss: 0.2804735501607259
+Epoch 178, Loss: 0.2877940006102576
+Epoch 179, Loss: 0.2941546227895852
+Epoch 180, Loss: 0.27470199718619837
+Epoch 181, Loss: 0.28563482269193186
+Epoch 182, Loss: 0.2705059786411849
+Epoch 183, Loss: 0.2846181510072766
+Epoch 184, Loss: 0.26134658379085135
+Epoch 185, Loss: 0.282833209317742
+Epoch 186, Loss: 0.2690665154068759
+Epoch 187, Loss: 0.2750250095445098
+Epoch 188, Loss: 0.2731373111406962
+Epoch 189, Loss: 0.26080769294816436
+Epoch 190, Loss: 0.2692568385691354
+Epoch 191, Loss: 0.26087486348820454
+Epoch 192, Loss: 0.263417129376621
+Epoch 193, Loss: 0.2709802236746658
+Epoch 194, Loss: 0.27095426652919163
+Epoch 195, Loss: 0.25700688204078964
+Epoch 196, Loss: 0.2681125185706399
+Epoch 197, Loss: 0.2571498306863236
+Epoch 198, Loss: 0.2533142024820501
+Epoch 199, Loss: 0.23459446447139437
+Epoch 200, Loss: 0.2792217313791766
 </pre>
 </div>
 </div>
@@ -17230,7 +17230,7 @@ Epoch 200, Loss: 0.5667830963026393
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1835]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2348]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">transform_data_with_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
@@ -17254,7 +17254,7 @@ Epoch 200, Loss: 0.5667830963026393
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1836]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2349]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -17295,7 +17295,7 @@ Epoch 200, Loss: 0.5667830963026393
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1837]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2350]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_transformed_data</span> <span class="o">=</span> <span class="n">transform_data_with_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
@@ -17311,7 +17311,7 @@ Epoch 200, Loss: 0.5667830963026393
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1838]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2351]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced_subsample'</span><span class="p">)</span>
@@ -17346,14 +17346,14 @@ Epoch 200, Loss: 0.5667830963026393
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>              precision    recall  f1-score   support
 
-     class 0       0.97      0.87      0.91       871
-     class 1       0.03      0.10      0.04        30
+     class 0       0.97      0.90      0.93       871
+     class 1       0.05      0.17      0.08        30
 
-    accuracy                           0.84       901
-   macro avg       0.50      0.48      0.48       901
-weighted avg       0.93      0.84      0.89       901
+    accuracy                           0.88       901
+   macro avg       0.51      0.53      0.51       901
+weighted avg       0.94      0.88      0.90       901
 
-0.040540540540540536
+0.08196721311475409
 </pre>
 </div>
 </div>
@@ -17367,7 +17367,7 @@ weighted avg       0.93      0.84      0.89       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1839]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2352]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">knn_class</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">'distance'</span><span class="p">)</span>
@@ -17409,7 +17409,7 @@ weighted avg       0.93      0.84      0.89       901
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0.8695238095238095
+<pre>0.91
 </pre>
 </div>
 </div>
@@ -17423,7 +17423,7 @@ weighted avg       0.93      0.84      0.89       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1840]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2353]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">SMOTETomek_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_transformed_data</span><span class="p">)</span>
@@ -17465,19 +17465,19 @@ weighted avg       0.93      0.84      0.89       901
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>0.7880133185349611
-0.23333333333333334
-0.04
-0.06829268292682927
-0.5202257941063911
+<pre>0.8290788013318535
+0.13333333333333333
+0.030303030303030304
+0.04938271604938271
+0.4931879066207424
               precision    recall  f1-score   support
 
-     class 0       0.97      0.81      0.88       871
-     class 1       0.04      0.23      0.07        30
+     class 0       0.97      0.85      0.91       871
+     class 1       0.03      0.13      0.05        30
 
-    accuracy                           0.79       901
-   macro avg       0.50      0.52      0.47       901
-weighted avg       0.94      0.79      0.85       901
+    accuracy                           0.83       901
+   macro avg       0.50      0.49      0.48       901
+weighted avg       0.94      0.83      0.88       901
 
 </pre>
 </div>
@@ -17492,7 +17492,7 @@ weighted avg       0.94      0.79      0.85       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1841]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2354]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">'minority'</span><span class="p">)</span>
@@ -17538,7 +17538,7 @@ weighted avg       0.94      0.79      0.85       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1842]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2355]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">knn_class</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">'distance'</span><span class="p">)</span>
@@ -17600,22 +17600,22 @@ weighted avg       0.94      0.79      0.85       901
 <pre>[Voting] ...................... (1 of 5) Processing ran, total=   0.2s
 [Voting] ...................... (2 of 5) Processing ada, total=   0.1s
 [Voting] ...................... (3 of 5) Processing knn, total=   0.0s
-[Voting] ..................... (4 of 5) Processing grad, total=   0.1s
+[Voting] ..................... (4 of 5) Processing grad, total=   0.2s
 [Voting] ...................... (5 of 5) Processing xgb, total=   0.0s
-0.8400597907324364
-0.8146503884572697
-0.16666666666666666
-0.034013605442176874
-0.05649717514124294
-0.5018178339073861
+0.9314897857498754
+0.827968923418424
+0.23333333333333334
+0.050359712230215826
+0.08284023668639053
+0.5408916953693073
               precision    recall  f1-score   support
 
-     class 0       0.97      0.84      0.90       871
-     class 1       0.03      0.17      0.06        30
+     class 0       0.97      0.85      0.91       871
+     class 1       0.05      0.23      0.08        30
 
-    accuracy                           0.81       901
-   macro avg       0.50      0.50      0.48       901
-weighted avg       0.94      0.81      0.87       901
+    accuracy                           0.83       901
+   macro avg       0.51      0.54      0.49       901
+weighted avg       0.94      0.83      0.88       901
 
 </pre>
 </div>
@@ -17630,7 +17630,7 @@ weighted avg       0.94      0.81      0.87       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1858]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2356]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">brf1</span> <span class="o">=</span> <span class="n">BalancedRandomForestClassifier</span><span class="p">(</span>
@@ -18485,15 +18485,15 @@ C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\utils\pa
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>[Voting] ...................... (1 of 2) Processing ran, total=   0.2s
 [Voting] ...................... (2 of 2) Processing ada, total=   0.2s
-0.5271144278606965
+0.5185036356678148
               precision    recall  f1-score   support
 
-     class 0       0.97      0.82      0.89       871
+     class 0       0.97      0.80      0.88       871
      class 1       0.04      0.23      0.07        30
 
-    accuracy                           0.80       901
-   macro avg       0.51      0.53      0.48       901
-weighted avg       0.94      0.80      0.86       901
+    accuracy                           0.78       901
+   macro avg       0.50      0.52      0.47       901
+weighted avg       0.94      0.78      0.85       901
 
 </pre>
 </div>
@@ -18508,11 +18508,11 @@ weighted avg       0.94      0.80      0.86       901
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1865]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2357]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">knn_class</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">'distance'</span><span class="p">)</span>
-<span class="n">random_class</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced_subsample'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">knn_class</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">'distance'</span><span class="p">)</span>
+<span class="n">random_class</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">class_weight</span><span class="o">=</span><span class="s1">'balanced_subsample'</span><span class="p">)</span>
 <span class="n">adaboost_class</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">algorithm</span><span class="o">=</span><span class="s1">'SAMME.R'</span><span class="p">)</span>
 <span class="n">gadient_class</span> <span class="o">=</span> <span class="n">GradientBoostingClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">'log_loss'</span><span class="p">)</span>
 <span class="n">xgb_class</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">max_depth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -18522,7 +18522,7 @@ weighted avg       0.94      0.80      0.86       901
                                             <span class="p">(</span><span class="s1">'knn'</span><span class="p">,</span><span class="n">knn_class</span><span class="p">),</span>
                                             <span class="p">(</span><span class="s1">'grad'</span><span class="p">,</span><span class="n">gadient_class</span><span class="p">),</span>
                                             <span class="p">(</span><span class="s1">'xgb'</span><span class="p">,</span><span class="n">xgb_class</span><span class="p">)</span>
-                                            <span class="p">],</span><span class="n">voting</span><span class="o">=</span><span class="s1">'hard'</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+                                            <span class="p">],</span><span class="n">voting</span><span class="o">=</span><span class="s1">'hard'</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 
 
 <span class="n">SMOTETomek_rf</span> <span class="o">=</span> <span class="n">voting_class</span>
@@ -18567,25 +18567,25 @@ weighted avg       0.94      0.80      0.86       901
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[Voting] ...................... (1 of 5) Processing ran, total=   0.2s
+<pre>[Voting] ...................... (1 of 5) Processing ran, total=   0.0s
 [Voting] ...................... (2 of 5) Processing ada, total=   0.1s
 [Voting] ...................... (3 of 5) Processing knn, total=   0.0s
-[Voting] ..................... (4 of 5) Processing grad, total=   0.5s
+[Voting] ..................... (4 of 5) Processing grad, total=   0.6s
 [Voting] ...................... (5 of 5) Processing xgb, total=   0.0s
-0.841803687095167
-0.8179800221975583
-0.16666666666666666
-0.034722222222222224
-0.057471264367816084
-0.5035399923459625
+0.9434479322371699
+0.8734739178690344
+0.13333333333333333
+0.043478260869565216
+0.06557377049180328
+0.5161500191350937
               precision    recall  f1-score   support
 
-     class 0       0.97      0.84      0.90       871
-     class 1       0.03      0.17      0.06        30
+     class 0       0.97      0.90      0.93       871
+     class 1       0.04      0.13      0.07        30
 
-    accuracy                           0.82       901
-   macro avg       0.50      0.50      0.48       901
-weighted avg       0.94      0.82      0.87       901
+    accuracy                           0.87       901
+   macro avg       0.51      0.52      0.50       901
+weighted avg       0.94      0.87      0.90       901
 
 </pre>
 </div>
@@ -18593,6 +18593,937 @@ weighted avg       0.94      0.82      0.87       901
 
 </div>
 
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2343]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleMLP2</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleMLP2</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">#16</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
+<span class="n">model2</span> <span class="o">=</span> <span class="n">SimpleMLP2</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCEWithLogitsLoss</span><span class="p">(</span><span class="n">weight</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">optim2</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">optim2</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model2</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">)</span>
+    <span class="c1"># Triplet Loss 계산</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">train_label</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optim2</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">model_pred</span> <span class="o">=</span> <span class="n">model2</span><span class="p">(</span><span class="n">test_transformed_data</span><span class="p">)</span>
+<span class="n">torch_test_label</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">torch_test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_acc</span><span class="p">)</span>
+
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'class 0'</span><span class="p">,</span> <span class="s1">'class 1'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Epoch 1, Loss: 14.330575942993164
+tensor(0.9667)
+              precision    recall  f1-score   support
+
+     class 0       0.97      1.00      0.98       871
+     class 1       0.00      0.00      0.00        30
+
+    accuracy                           0.97       901
+   macro avg       0.48      0.50      0.49       901
+weighted avg       0.93      0.97      0.95       901
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning:
+
+Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+
+C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning:
+
+Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+
+C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning:
+
+Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2344]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span> <span class="c1">#tsne 그려줌</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2345]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span> <span class="c1">#tsne 그려줌</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2363]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleMLP3</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleMLP3</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">#16</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">15</span><span class="o">/</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">model3</span> <span class="o">=</span> <span class="n">SimpleMLP3</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCEWithLogitsLoss</span><span class="p">(</span><span class="n">pos_weight</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">optim3</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model3</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">optim3</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model3</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">X_train_over</span><span class="p">))</span>
+    <span class="c1"># Triplet Loss 계산</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y_train_over</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optim3</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">model_pred</span> <span class="o">=</span> <span class="n">model3</span><span class="p">(</span><span class="n">test_transformed_data</span><span class="p">)</span>
+<span class="n">torch_test_label</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">torch_test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_acc</span><span class="p">)</span>
+
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'class 0'</span><span class="p">,</span> <span class="s1">'class 1'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Epoch 1, Loss: 0.5785422325134277
+Epoch 51, Loss: 0.5148130059242249
+Epoch 101, Loss: 0.485212117433548
+Epoch 151, Loss: 0.4528058171272278
+Epoch 201, Loss: 0.45091038942337036
+Epoch 251, Loss: 0.4504977762699127
+Epoch 301, Loss: 0.4503033459186554
+Epoch 351, Loss: 0.4501357078552246
+Epoch 401, Loss: 0.45006221532821655
+Epoch 451, Loss: 0.4500223696231842
+tensor(0.7203)
+              precision    recall  f1-score   support
+
+     class 0       0.97      0.73      0.84       871
+     class 1       0.04      0.30      0.07        30
+
+    accuracy                           0.72       901
+   macro avg       0.50      0.52      0.45       901
+weighted avg       0.94      0.72      0.81       901
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2364]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">),</span><span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span> <span class="c1">#tsne 그려줌</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2365]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span> <span class="o">=</span> <span class="n">test_transformed_data</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span> <span class="c1">#tsne 그려줌</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2380]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">smote</span> <span class="o">=</span> <span class="n">SMOTE</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">k_neighbors</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">sampling_strategy</span><span class="o">=</span><span class="s1">'minority'</span><span class="p">)</span>
+<span class="c1">#rus = NearMiss()</span>
+<span class="c1">#x_rus, y_rus = rus.fit_resample(preprocess_df, train_label)</span>
+<span class="c1">#print(y_rus.value_counts())</span>
+<span class="n">X_train_over</span><span class="p">,</span><span class="n">y_train_over</span> <span class="o">=</span> <span class="n">smote</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">preprocess_df</span><span class="p">,</span><span class="n">train_label</span><span class="p">)</span>
+
+<span class="n">triplet_dataset2</span> <span class="o">=</span> <span class="n">TripletDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">X_train_over</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y_train_over</span><span class="p">))</span>
+
+<span class="n">input_dim</span> <span class="o">=</span> <span class="n">X_train_over</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">output_dim</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">hidden_dim</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SimpleMLP</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span><span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">)</span>
+<span class="n">triplet_loss</span> <span class="o">=</span> <span class="n">TripletLoss</span><span class="p">()</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2381]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">triplet_dataset2</span><span class="p">))</span>
+<span class="n">triplet_loader</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">triplet_dataset2</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">total_loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">triplet_loader</span><span class="p">:</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+        <span class="n">anchor</span><span class="p">,</span> <span class="n">positive</span><span class="p">,</span> <span class="n">negative</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="n">anchor</span><span class="p">,</span> <span class="n">positive</span><span class="p">,</span> <span class="n">negative</span> <span class="o">=</span> <span class="n">anchor</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">positive</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">negative</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+
+        <span class="c1"># 모델 예측</span>
+        <span class="n">anchor_output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">anchor</span><span class="p">)</span>
+        <span class="n">positive_output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">positive</span><span class="p">)</span>
+        <span class="n">negative_output</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">negative</span><span class="p">)</span>
+
+        <span class="c1"># Triplet Loss 계산</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="n">triplet_loss</span><span class="p">(</span><span class="n">anchor_output</span><span class="p">,</span> <span class="n">positive_output</span><span class="p">,</span> <span class="n">negative_output</span><span class="p">)</span>
+        <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+        <span class="n">total_loss</span> <span class="o">+=</span> <span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">total_loss</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">triplet_loader</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>4014
+Epoch 1, Loss: 0.9757353899970888
+Epoch 2, Loss: 0.9719229875102876
+Epoch 3, Loss: 0.9644381531647274
+Epoch 4, Loss: 0.9348955395675841
+Epoch 5, Loss: 0.9210622372135283
+Epoch 6, Loss: 0.9253672531672886
+Epoch 7, Loss: 0.9046754983682481
+Epoch 8, Loss: 0.8683446801844097
+Epoch 9, Loss: 0.8136060748781476
+Epoch 10, Loss: 0.7983700793886942
+Epoch 11, Loss: 0.7683018673033941
+Epoch 12, Loss: 0.7699798170536284
+Epoch 13, Loss: 0.7830758354966603
+Epoch 14, Loss: 0.7401450262183235
+Epoch 15, Loss: 0.7643516236354434
+Epoch 16, Loss: 0.737685345468067
+Epoch 17, Loss: 0.7513244847456614
+Epoch 18, Loss: 0.7397371426461234
+Epoch 19, Loss: 0.7310057644333158
+Epoch 20, Loss: 0.7078542205549422
+Epoch 21, Loss: 0.7019844615743274
+Epoch 22, Loss: 0.6910653625215802
+Epoch 23, Loss: 0.703445148373407
+Epoch 24, Loss: 0.6729416066691989
+Epoch 25, Loss: 0.6614170786407259
+Epoch 26, Loss: 0.6517565491653624
+Epoch 27, Loss: 0.6440326571464539
+Epoch 28, Loss: 0.6367001914315753
+Epoch 29, Loss: 0.6358694384495417
+Epoch 30, Loss: 0.6245550385543278
+Epoch 31, Loss: 0.6095672616409877
+Epoch 32, Loss: 0.6317870271584344
+Epoch 33, Loss: 0.6385302207772694
+Epoch 34, Loss: 0.5978228527875173
+Epoch 35, Loss: 0.6025676043733718
+Epoch 36, Loss: 0.6196259640985065
+Epoch 37, Loss: 0.6169847990312274
+Epoch 38, Loss: 0.6022069042637235
+Epoch 39, Loss: 0.6058670807452429
+Epoch 40, Loss: 0.6156699331033797
+Epoch 41, Loss: 0.5856410778231091
+Epoch 42, Loss: 0.6190525726193473
+Epoch 43, Loss: 0.5930004801068988
+Epoch 44, Loss: 0.5980658200052049
+Epoch 45, Loss: 0.5925498427379698
+Epoch 46, Loss: 0.5953487254797466
+Epoch 47, Loss: 0.5893508493900299
+Epoch 48, Loss: 0.5776642830598921
+Epoch 49, Loss: 0.6087625173349229
+Epoch 50, Loss: 0.5940406483317179
+Epoch 51, Loss: 0.566522886355718
+Epoch 52, Loss: 0.5724960222603783
+Epoch 53, Loss: 0.587893690145205
+Epoch 54, Loss: 0.5907064520177387
+Epoch 55, Loss: 0.600160183887633
+Epoch 56, Loss: 0.5984665425050826
+Epoch 57, Loss: 0.5820901997032619
+Epoch 58, Loss: 0.589599303546406
+Epoch 59, Loss: 0.5767012316556204
+Epoch 60, Loss: 0.5760997214487621
+Epoch 61, Loss: 0.5802870984115298
+Epoch 62, Loss: 0.5817619242838451
+Epoch 63, Loss: 0.5807989498689061
+Epoch 64, Loss: 0.5852436003467393
+Epoch 65, Loss: 0.5909421671004522
+Epoch 66, Loss: 0.5708281201502633
+Epoch 67, Loss: 0.6122092961791962
+Epoch 68, Loss: 0.5972925994604353
+Epoch 69, Loss: 0.5829587938293578
+Epoch 70, Loss: 0.5754560378808824
+Epoch 71, Loss: 0.583532155742721
+Epoch 72, Loss: 0.5932090388877052
+Epoch 73, Loss: 0.5777424200186654
+Epoch 74, Loss: 0.5599961391990147
+Epoch 75, Loss: 0.5753161909561308
+Epoch 76, Loss: 0.573624973968854
+Epoch 77, Loss: 0.5728838817467765
+Epoch 78, Loss: 0.5796090407030923
+Epoch 79, Loss: 0.568162001078091
+Epoch 80, Loss: 0.5661993549456672
+Epoch 81, Loss: 0.5613430530305893
+Epoch 82, Loss: 0.5805987978265399
+Epoch 83, Loss: 0.5630188116005489
+Epoch 84, Loss: 0.5773622729475536
+Epoch 85, Loss: 0.5647187280276466
+Epoch 86, Loss: 0.5764348568424346
+Epoch 87, Loss: 0.5726764391339014
+Epoch 88, Loss: 0.5677888880646418
+Epoch 89, Loss: 0.5600678409848895
+Epoch 90, Loss: 0.5681047536551006
+Epoch 91, Loss: 0.5686151886743213
+Epoch 92, Loss: 0.586689793874347
+Epoch 93, Loss: 0.570524111508377
+Epoch 94, Loss: 0.5845818727735489
+Epoch 95, Loss: 0.5871792355227092
+Epoch 96, Loss: 0.5681421853720195
+Epoch 97, Loss: 0.5799088648387364
+Epoch 98, Loss: 0.5681042630994131
+Epoch 99, Loss: 0.5580627461747517
+Epoch 100, Loss: 0.5557575753283879
+Epoch 101, Loss: 0.5718825431097121
+Epoch 102, Loss: 0.5747902152084169
+Epoch 103, Loss: 0.575852782243774
+Epoch 104, Loss: 0.5505339181612409
+Epoch 105, Loss: 0.5713356458951556
+Epoch 106, Loss: 0.5769558914360546
+Epoch 107, Loss: 0.5661514886314907
+Epoch 108, Loss: 0.570256706031542
+Epoch 109, Loss: 0.560659341159321
+Epoch 110, Loss: 0.5704497226646968
+Epoch 111, Loss: 0.5603446700270214
+Epoch 112, Loss: 0.5568553793524939
+Epoch 113, Loss: 0.5670013330758564
+Epoch 114, Loss: 0.5676435951202635
+Epoch 115, Loss: 0.5532470631694036
+Epoch 116, Loss: 0.577274723658486
+Epoch 117, Loss: 0.5689304856553911
+Epoch 118, Loss: 0.5638127570587491
+Epoch 119, Loss: 0.5764667654321307
+Epoch 120, Loss: 0.5771131404335537
+Epoch 121, Loss: 0.5664747636469584
+Epoch 122, Loss: 0.5518085121635407
+Epoch 123, Loss: 0.5703765845724514
+Epoch 124, Loss: 0.5695572258934142
+Epoch 125, Loss: 0.5651244026800942
+Epoch 126, Loss: 0.5677046198693533
+Epoch 127, Loss: 0.5560719463087264
+Epoch 128, Loss: 0.5724700753177915
+Epoch 129, Loss: 0.5882822424173355
+Epoch 130, Loss: 0.5589818810186689
+Epoch 131, Loss: 0.5541878449065345
+Epoch 132, Loss: 0.5707715998093287
+Epoch 133, Loss: 0.5892945166145053
+Epoch 134, Loss: 0.5710030112947736
+Epoch 135, Loss: 0.5607406792659608
+Epoch 136, Loss: 0.5535694195164574
+Epoch 137, Loss: 0.5641689037992841
+Epoch 138, Loss: 0.564502452574079
+Epoch 139, Loss: 0.5527292650843424
+Epoch 140, Loss: 0.5543567777153046
+Epoch 141, Loss: 0.5562235074383872
+Epoch 142, Loss: 0.5501957597240569
+Epoch 143, Loss: 0.5526567224472289
+Epoch 144, Loss: 0.55885920236035
+Epoch 145, Loss: 0.5628539084915131
+Epoch 146, Loss: 0.5614987238058968
+Epoch 147, Loss: 0.5634833207679173
+Epoch 148, Loss: 0.5527078791979759
+Epoch 149, Loss: 0.5693810310155626
+Epoch 150, Loss: 0.5822992814438683
+Epoch 151, Loss: 0.5597926439746977
+Epoch 152, Loss: 0.5532852644248615
+Epoch 153, Loss: 0.5758454275746194
+Epoch 154, Loss: 0.5511640318565898
+Epoch 155, Loss: 0.5529560188925455
+Epoch 156, Loss: 0.5595426471933486
+Epoch 157, Loss: 0.5538747444275826
+Epoch 158, Loss: 0.5751946220795313
+Epoch 159, Loss: 0.5517576600587557
+Epoch 160, Loss: 0.5846265902121862
+Epoch 161, Loss: 0.5682702207612613
+Epoch 162, Loss: 0.5770916367570559
+Epoch 163, Loss: 0.5682172657005371
+Epoch 164, Loss: 0.5567201413805523
+Epoch 165, Loss: 0.5609400601141037
+Epoch 166, Loss: 0.5585803817661982
+Epoch 167, Loss: 0.538957713851853
+Epoch 168, Loss: 0.5439476056231393
+Epoch 169, Loss: 0.5668087828726995
+Epoch 170, Loss: 0.5629121360797731
+Epoch 171, Loss: 0.5716113429220896
+Epoch 172, Loss: 0.5574268056523233
+Epoch 173, Loss: 0.5738484142791658
+Epoch 174, Loss: 0.5782236882618496
+Epoch 175, Loss: 0.5782292866044574
+Epoch 176, Loss: 0.55705697621618
+Epoch 177, Loss: 0.5484333031234288
+Epoch 178, Loss: 0.5409635442589956
+Epoch 179, Loss: 0.5663564854434558
+Epoch 180, Loss: 0.53926605884991
+Epoch 181, Loss: 0.5697940803236432
+Epoch 182, Loss: 0.5460651952122885
+Epoch 183, Loss: 0.5562026548007178
+Epoch 184, Loss: 0.55046789182557
+Epoch 185, Loss: 0.5602131393693742
+Epoch 186, Loss: 0.545319824228211
+Epoch 187, Loss: 0.5551788402455193
+Epoch 188, Loss: 0.5659298653167392
+Epoch 189, Loss: 0.5376581637159227
+Epoch 190, Loss: 0.5605430818266339
+Epoch 191, Loss: 0.5573201444413927
+Epoch 192, Loss: 0.5527894222547137
+Epoch 193, Loss: 0.5670482279762389
+Epoch 194, Loss: 0.5609439866883414
+Epoch 195, Loss: 0.5553527881228735
+Epoch 196, Loss: 0.577645783859586
+Epoch 197, Loss: 0.5539139173333607
+Epoch 198, Loss: 0.5747354971984077
+Epoch 199, Loss: 0.5377229206145756
+Epoch 200, Loss: 0.5397345474551595
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2383]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">transform_data_with_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>  
+    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+        <span class="n">transformed_data</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">transformed_data</span>
+
+<span class="n">transformed_data</span> <span class="o">=</span> <span class="n">transform_data_with_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">X_train_over</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2384]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">metric</span><span class="o">=</span><span class="s1">'cosine'</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">feat</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">))</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">feat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span> <span class="o">=</span> <span class="n">feat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">color</span><span class="o">=</span><span class="n">y_train_over</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">1200</span><span class="p">)</span> <span class="c1">#tsne 그려줌</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2385]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">test_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">test_transformed_data</span> <span class="o">=</span> <span class="n">transform_data_with_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>(901, 25)
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2395]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleMLP6</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleMLP6</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">#16</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model6</span> <span class="o">=</span> <span class="n">SimpleMLP6</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCEWithLogitsLoss</span><span class="p">()</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">optim2</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model6</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">optim2</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model6</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">)</span>
+    <span class="c1"># Triplet Loss 계산</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">y_train_over</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optim2</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">20</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">model_pred</span> <span class="o">=</span> <span class="n">model6</span><span class="p">(</span><span class="n">test_transformed_data</span><span class="p">)</span>
+<span class="n">torch_test_label</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">torch_test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_acc</span><span class="p">)</span>
+
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'class 0'</span><span class="p">,</span> <span class="s1">'class 1'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>Epoch 1, Loss: 0.7229395508766174
+Epoch 21, Loss: 0.7195390462875366
+Epoch 41, Loss: 0.7170892953872681
+Epoch 61, Loss: 0.7166145443916321
+Epoch 81, Loss: 0.7164520621299744
+tensor(0.9667)
+              precision    recall  f1-score   support
+
+     class 0       0.97      1.00      0.98       871
+     class 1       0.00      0.00      0.00        30
+
+    accuracy                           0.97       901
+   macro avg       0.48      0.50      0.49       901
+weighted avg       0.93      0.97      0.95       901
+
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning:
+
+Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+
+C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning:
+
+Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+
+C:\Users\BIG3-09\AppData\Roaming\Python\Python311\site-packages\sklearn\metrics\_classification.py:1344: UndefinedMetricWarning:
+
+Precision and F-score are ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+
+</pre>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SimpleMLP6</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span><span class="n">output_dim</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SimpleMLP6</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">output_dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fc2</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc3</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1">#16</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model6</span> <span class="o">=</span> <span class="n">SimpleMLP6</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BCEWithLogitsLoss</span><span class="p">()</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">optim2</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">model2</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span><span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_epochs</span><span class="p">):</span>
+    <span class="n">optim2</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">model6</span><span class="p">(</span><span class="n">transformed_data</span><span class="p">)</span>
+    <span class="c1"># Triplet Loss 계산</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">loss_fn</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">train_label</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">())</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+    <span class="n">optim2</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">50</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Epoch </span><span class="si">{</span><span class="n">epoch</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">, Loss: </span><span class="si">{</span><span class="n">loss</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">model_pred</span> <span class="o">=</span> <span class="n">model2</span><span class="p">(</span><span class="n">test_transformed_data</span><span class="p">)</span>
+<span class="n">torch_test_label</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">train_acc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">torch_test_label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_acc</span><span class="p">)</span>
+
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'class 0'</span><span class="p">,</span> <span class="s1">'class 1'</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">test_label</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">model_pred</span><span class="p">,</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span>
+</pre></div>
+
+     </div>
+</div>
+</div>
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
