@@ -198,3 +198,145 @@ with
     )
 
 select * from combined_results;
+
+
+
+
+
+with
+    
+    member as (
+    select member.userid, member.grade, member.bungi from  ( -- member 테이블에서 유저 아이디, 학년 달을 가져옴
+        select member.userid, member.grade, member.yyyy,member.mm, case
+                                                when member.mm in ('01','02','03') then  1
+                                                when member.mm in ('04','05','06') then  2
+                                                when member.mm in ('07','08','09') then  3
+                                                else 4 -- 달 기준으로 분기 나눠줌 
+                                            end as bungi 
+        from text_biz_dw.e_member as member 
+            where member.yyyy = '2022' -- 실제 학년 데이터를 가져와야 하기 때문에 grade 제한 안걸어줌
+                
+            ) as member where member.bungi = ?),
+            
+    last_values AS (
+        SELECT 
+            *,
+            ROW_NUMBER() OVER(PARTITION BY userid ORDER BY (SELECT NULL)) AS row_num
+        FROM 
+            member
+    ),
+    -- 첫 번째 레코드만 선택합니다.
+    unique_members AS (
+        SELECT * FROM last_values WHERE row_num = 1
+    ),
+    a as (
+    select a.mcode  from ( -- meta data에서 학년과 2022년으로 설정해주고 grade를 가져와서 콘텐츠 타겟 학년으로 사용함
+        select a.mcode,a.grade,a.yyyy,a.mm, 
+                                            case
+                                                when a.mm in ('01','02','03') then  1
+                                                when a.mm in ('04','05','06') then  2
+                                                when a.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
+        from text_biz_dw.e_content_meta as a -- 1번 조건 3번 조건
+            where a.yyyy = '2022'
+                and a.grade > 2 
+                and a.grade < 7
+    ) as a where a.bungi = ?),
+
+    b as ( select b.userid,b.mcode from ( -- media 활동이 있는 강의는 영상이 제공된다는 뜻이므로 영상인지 판단하는데 사용함 
+        select b.userid,b.mcode,b.yyyy,b.mm, case
+                                                when b.mm in ('01','02','03') then  1 -- 조건걸음
+                                                when b.mm in ('04','05','06') then  2
+                                                when b.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
+        
+        from text_biz_dw.e_media as b 
+            where b.yyyy = '2022'
+
+    ) as b where b.bungi = ?),
+    c as (select c.userid,c.mcode,c.system_learning_time,c.bungi from ( -- 학습시간을 얻기 위해서 사용함
+        select c.userid,c.mcode,c.system_learning_time,c.yyyy,c.mm, case
+                                                when c.mm in ('01','02','03') then  1
+                                                when c.mm in ('04','05','06') then  2
+                                                when c.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
+        from text_biz_dw.e_study as c
+            where c.yyyy = '2022'
+                and (c.system_learning_time is not null) -- null 값 제거거
+
+    ) as c where c.bungi = ?),
+    d as (select d.mcode,d.score,d.item_count,d.correct_count,d.bungi  from ( -- score가 있다는 것이 문제풀이가 제공된다는 것이므로 사용
+        select d.userid,d.mcode,d.score,d.item_count,d.correct_count,d.yyyy,d.mm, case
+                                                when d.mm in ('01','02','03') then  1
+                                                when d.mm in ('04','05','06') then  2
+                                                when d.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
+        from text_biz_dw.e_test as d 
+            where d.yyyy = '2022'
+                and (d.score is not null) -- null값 제거
+                and (d.item_count is not null)
+                and (d.correct_count is not null)
+    ) as d where d.bungi = ?),
+    ee as ( 
+        select b.mcode,b.userid -- 문제풀이와 강의영상 모두 있는 content 
+            from b 
+            inner join d on b.mcode = d.mcode
+    ),
+    f as ( 
+        select ee.mcode as mcode,ee.userid as userid from ee -- 1,2,3번 조건을 모두 충족하는 mcode만 
+            inner join a on ee.mcode = a.mcode
+        ),
+    chk_user as (
+        select f.userid  as userid, avg(member.grade) as grade from f 
+            inner join member on f.userid = member.userid -- 모든 조건을 만족하는 유저들의 실제 학년 등록
+        group by f.userid
+    ),
+
+    num_student as ( -- c(학습시간) 테이블에서 모든 조건 만족하는 user id의 count를 세줘서 content 별 학습을 진행한 학생 수 구함
+        select c.mcode, count(c.userid) as num_student from c
+            inner join f on c.mcode = f.mcode
+        group by c.mcode
+    ),
+    content_time as ( -- c(학습시간) 테이블에서 모든 조건 만족하는 content의 system_learning_time 합계로 총 학습시간 
+        select c.mcode, sum(c.system_learning_time) as _sum from c  
+             inner join f on c.mcode = f.mcode
+            group by c.mcode
+    ),
+
+    user_mean_grade as ( -- f(모든 조건 만족하는 user id와 mcode)테이블에서 chk_user(grade)와 비교해서 같다면 유저의 실제 학년 평균
+        select f.mcode as mcode, avg(chk_user.grade) as user_mean_grade from f
+            inner join chk_user on f.userid = chk_user.userid
+        group by f.mcode
+    ),
+    all_mean as ( 
+        select d.mcode,avg(d.bungi) as bungi, avg(d.item_count) as mean_count, -- 평가 문항 평균개수, 정답문항 평균개수, 평가점수 평균
+            avg(d.correct_count) as mean_corr_count,
+            avg(d.score) as mean_score
+            from d
+            inner join f on d.mcode = f.mcode
+        group by d.mcode
+    ),
+    combined_results as (
+        select 
+            am.mcode,
+            umg.user_mean_grade as user_mean_grade,
+            ct._sum as total_learning_time,
+            ns.num_student as num_student,
+            am.mean_count as mean_count,
+            am.mean_corr_count as mean_corr_count,
+            am.mean_score as mean_score
+        from 
+            all_mean am
+        inner join 
+            user_mean_grade umg on am.mcode = umg.mcode
+        inner join 
+            content_time ct on am.mcode = ct.mcode
+        inner join 
+            num_student ns on am.mcode = ns.mcode
+    )
+
+select count(userid) from unique_members;
