@@ -204,9 +204,8 @@ select * from combined_results;
 
 
 with
-    
     member as (
-    select member.userid, member.grade, member.bungi from  ( -- member 테이블에서 유저 아이디, 학년 달을 가져옴
+    select  member.userid, max(member.grade) as grade, max(member.bungi) as bungi from  ( -- member 테이블에서 유저 아이디, 학년 달을 가져옴
         select member.userid, member.grade, member.yyyy,member.mm, case
                                                 when member.mm in ('01','02','03') then  1
                                                 when member.mm in ('04','05','06') then  2
@@ -216,19 +215,8 @@ with
         from text_biz_dw.e_member as member 
             where member.yyyy = '2022' -- 실제 학년 데이터를 가져와야 하기 때문에 grade 제한 안걸어줌
                 
-            ) as member where member.bungi = ?),
-            
-    last_values AS (
-        SELECT 
-            *,
-            ROW_NUMBER() OVER(PARTITION BY userid ORDER BY (SELECT NULL)) AS row_num
-        FROM 
-            member
-    ),
-    -- 첫 번째 레코드만 선택합니다.
-    unique_members AS (
-        SELECT * FROM last_values WHERE row_num = 1
-    ),
+            ) as member where member.bungi = ? group by member.userid),
+
     a as (
     select a.mcode  from ( -- meta data에서 학년과 2022년으로 설정해주고 grade를 가져와서 콘텐츠 타겟 학년으로 사용함
         select a.mcode,a.grade,a.yyyy,a.mm, 
@@ -282,28 +270,30 @@ with
                 and (d.correct_count is not null)
     ) as d where d.bungi = ?),
     ee as ( 
-        select b.mcode,b.userid -- 문제풀이와 강의영상 모두 있는 content 
-            from b 
-            inner join d on b.mcode = d.mcode
+        select b.mcode, b.userid as userid
+            from b
+        where b.mcode in (select d.mcode from d)
     ),
     f as ( 
         select ee.mcode as mcode,ee.userid as userid from ee -- 1,2,3번 조건을 모두 충족하는 mcode만 
-            inner join a on ee.mcode = a.mcode
+            where ee.mcode in (select a.mcode from a)
+
         ),
     chk_user as (
         select f.userid  as userid, avg(member.grade) as grade from f 
-            inner join member on f.userid = member.userid -- 모든 조건을 만족하는 유저들의 실제 학년 등록
+            inner join member on f.userid = member.userid
+             -- 모든 조건을 만족하는 유저들의 실제 학년 등록
         group by f.userid
     ),
 
     num_student as ( -- c(학습시간) 테이블에서 모든 조건 만족하는 user id의 count를 세줘서 content 별 학습을 진행한 학생 수 구함
         select c.mcode, count(c.userid) as num_student from c
-            inner join f on c.mcode = f.mcode
+            where c.mcode in (select f.mcode from f)
         group by c.mcode
     ),
     content_time as ( -- c(학습시간) 테이블에서 모든 조건 만족하는 content의 system_learning_time 합계로 총 학습시간 
         select c.mcode, sum(c.system_learning_time) as _sum from c  
-             inner join f on c.mcode = f.mcode
+            where c.mcode in (select f.mcode from f)
             group by c.mcode
     ),
 
@@ -317,7 +307,7 @@ with
             avg(d.correct_count) as mean_corr_count,
             avg(d.score) as mean_score
             from d
-            inner join f on d.mcode = f.mcode
+            where d.mcode in (select f.mcode from f)
         group by d.mcode
     ),
     combined_results as (
@@ -339,4 +329,4 @@ with
             num_student ns on am.mcode = ns.mcode
     )
 
-select count(userid) from unique_members;
+select count(mcode) from combined_results;
