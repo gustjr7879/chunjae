@@ -155,13 +155,7 @@ select * from text_biz_dw.e_content_meta as a
             and a.grade >2
 limit 5;
 
--- 조건 1 grade가 2보다 큰 데이터
--- 조건 2 영상/문제풀이 둘다 제공되는 데이터 
--- 조건 3 22년도 
--- 실행 1 content 별 학습을 진행한 학생 수 
--- 실행 2 content 별 학습을 진행한 학생의 학년 평균
--- 실행 3 content 별 학습시간 
--- 실행 4 content 별 평가 문항 평균 개수 / 정답 문항 평균 개수 / 평가 점수 평균 
+
 -- 조건 1 grade가 2보다 큰 데이터
 -- 조건 2 영상/문제풀이 둘다 제공되는 데이터 
 -- 조건 3 22년도 
@@ -171,94 +165,94 @@ limit 5;
 -- 실행 4 content 별 평가 문항 평균 개수 / 정답 문항 평균 개수 / 평가 점수 평균 
 -- 학생회원의 학년 
 -- 3학년 컨텐츠를 2학년이 했을수도 4학년이 했을 수도 
+
 with
-    m as (
-        select 1 as bungi
-    ),
-    a as ( 
-        select a.mcode,a.grade,a.yyyy,a.mm, case
-                                            when a.mm in ('01','02','03') then  1
-                                            when a.mm in ('04','05','06') then  2
-                                            when a.mm in ('07','08','09') then  3
-                                            else 4
-                                            end as "bungi"
+    
+    a as (select * from (
+        select a.mcode,a.grade,a.yyyy,a.mm, 
+                                            case
+                                                when a.mm in ('01','02','03') then  1
+                                                when a.mm in ('04','05','06') then  2
+                                                when a.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
         from text_biz_dw.e_content_meta as a -- 1번 조건 3번 조건
             where a.yyyy = '2022'
                 and a.grade > 2 
                 and a.grade < 7
-            limit 50000
-    ),
-    b as (
+
+            limit 500000
+    ) as a where a.bungi = ?),
+
+    b as ( select * from (
         select b.userid,b.mcode,b.yyyy,b.mm, case
-                                            when b.mm in ('01','02','03') then  1
-                                            when b.mm in ('04','05','06') then  2
-                                            when b.mm in ('07','08','09') then  3
-                                            else 4
-                                            end as "bungi"
+                                                when b.mm in ('01','02','03') then  1
+                                                when b.mm in ('04','05','06') then  2
+                                                when b.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
         
         from text_biz_dw.e_media as b -- 영상인지 판단
             where b.yyyy = '2022'
-            limit 50000
-    ),
-    c as (
+            limit 500000
+    ) as b where b.bungi = ?),
+    c as (select * from (
         select c.userid,c.mcode,c.system_learning_time,c.yyyy,c.mm, case
-                                            when c.mm in ('01','02','03') then  1
-                                            when c.mm in ('04','05','06') then  2
-                                            when c.mm in ('07','08','09') then  3
-                                            else 4
-                                            end as "bungi"
+                                                when c.mm in ('01','02','03') then  1
+                                                when c.mm in ('04','05','06') then  2
+                                                when c.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
         from text_biz_dw.e_study as c -- 학습시간 
             where c.yyyy = '2022'
                 and (c.system_learning_time is not null)
-            limit 50000
-    ),
-    d as (
+            limit 500000
+    ) as c where c.bungi = ?),
+    d as (select * from (
         select d.userid,d.mcode,d.score,d.item_count,d.correct_count,d.yyyy,d.mm, case
-                                            when d.mm in ('01','02','03') then  1
-                                            when d.mm in ('04','05','06') then  2
-                                            when d.mm in ('07','08','09') then  3
-                                            else 4
-                                            end as "bungi"
+                                                when d.mm in ('01','02','03') then  1
+                                                when d.mm in ('04','05','06') then  2
+                                                when d.mm in ('07','08','09') then  3
+                                                else 4
+                                            end as bungi
         from text_biz_dw.e_test as d -- 문제풀이 제공 판단
             where d.yyyy = '2022'
                 and (d.score is not null)
                 and (d.item_count is not null)
                 and (d.correct_count is not null)
-            limit 50000
-    ),
+            limit 500000
+    ) as d where d.bungi = ?),
     ee as ( 
         select b.mcode -- 문제풀이와 강의영상 모두 있는 content 
             from b 
             inner join d on b.mcode = d.mcode
-            limit 50000
+            limit 500000
     ),
     f as ( 
         select ee.mcode from ee -- 1,2,3번 조건을 모두 충족하는 mcode만 
             inner join a on ee.mcode = a.mcode
         ),
     num_student as (
-        select c.mcode, count(c.userid) as num_student from c
+        select c.mcode,avg(c.bungi), count(c.userid) as num_student from c
             inner join f on c.mcode = f.mcode
         group by c.mcode
     ),
     content_time as ( 
-        select c.mcode, sum(c.system_learning_time) as _sum from c -- content 별 학습시간 
+        select c.mcode,avg(c.bungi), sum(c.system_learning_time) as _sum from c -- content 별 학습시간 
              inner join f on c.mcode = f.mcode
             group by c.mcode
     ),
     mean_grade as (
-        select a.mcode, avg(a.grade) as mean_grade from a
+        select a.mcode,avg(a.bungi), avg(a.grade) as mean_grade from a
                 inner join f on a.mcode = f.mcode
             group by a.mcode
     ),
     all_mean as ( 
-        select d.mcode, avg(d.item_count) as mean_count, -- 평가 문항 평균개수, 정답문항 평균개수, 평가점수 평균
+        select d.mcode,avg(d.bungi), avg(d.item_count) as mean_count, -- 평가 문항 평균개수, 정답문항 평균개수, 평가점수 평균
             avg(d.correct_count) as mean_corr_count,
             avg(d.score) as mean_score
             from d
             inner join f on d.mcode = f.mcode
         group by d.mcode
     )
-select * from a limit 10;
-
-
+select * from all_mean limit 10;
