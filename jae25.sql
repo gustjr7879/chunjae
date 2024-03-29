@@ -203,6 +203,16 @@ select * from combined_results;
 
 
 
+-- 조건 1 grade가 2보다 큰 데이터
+-- 조건 2 영상/문제풀이 둘다 제공되는 데이터 
+-- 조건 3 22년도 
+-- 실행 1 content 별 학습을 진행한 학생 수 
+-- 실행 2 content 별 학습을 진행한 학생의 학년 평균
+-- 실행 3 content 별 학습시간 
+-- 실행 4 content 별 평가 문항 평균 개수 / 정답 문항 평균 개수 / 평가 점수 평균 
+-- 학생회원의 학년 
+-- 3학년 컨텐츠를 2학년이 했을수도 4학년이 했을 수도 
+
 with
     member as (
     select  member.userid, max(member.grade) as grade, max(member.bungi) as bungi from  ( -- member 테이블에서 유저 아이디, 학년 달을 가져옴
@@ -215,7 +225,7 @@ with
         from text_biz_dw.e_member as member 
             where member.yyyy = '2022' -- 실제 학년 데이터를 가져와야 하기 때문에 grade 제한 안걸어줌
                 
-            ) as member where member.bungi = ? group by member.userid),
+            ) as member where member.bungi = ? group by member.userid), -- ?는 파라미터 
 
     a as (
     select a.mcode  from ( -- meta data에서 학년과 2022년으로 설정해주고 grade를 가져와서 콘텐츠 타겟 학년으로 사용함
@@ -226,7 +236,7 @@ with
                                                 when a.mm in ('07','08','09') then  3
                                                 else 4
                                             end as bungi
-        from text_biz_dw.e_content_meta as a -- 1번 조건 3번 조건
+        from text_biz_dw.e_content_meta as a 
             where a.yyyy = '2022'
                 and a.grade > 2 
                 and a.grade < 7
@@ -270,17 +280,18 @@ with
                 and (d.correct_count is not null)
     ) as d where d.bungi = ?),
     ee as ( 
-        select b.mcode, b.userid as userid
+        select b.mcode, b.userid as userid -- 문제풀이를 제공하고 미디어 강의를 제공하는 것만 
             from b
-        where b.mcode in (select d.mcode from d)
+        where b.mcode in (select d.mcode from d) -- join은 시간이 오래 걸려서 서브쿼리로 처리해줌 
     ),
     f as ( 
-        select ee.mcode as mcode,ee.userid as userid from ee -- 1,2,3번 조건을 모두 충족하는 mcode만 
+        select ee.mcode as mcode,ee.userid as userid from ee -- 동영상 + 문제풀이 + 3,4,5,6학년 타겟 정보 (모든조건)
             where ee.mcode in (select a.mcode from a)
 
         ),
     chk_user as (
         select f.userid  as userid, avg(member.grade) as grade from f 
+        
             inner join member on f.userid = member.userid
              -- 모든 조건을 만족하는 유저들의 실제 학년 등록
         group by f.userid
@@ -299,6 +310,7 @@ with
 
     user_mean_grade as ( -- f(모든 조건 만족하는 user id와 mcode)테이블에서 chk_user(grade)와 비교해서 같다면 유저의 실제 학년 평균
         select f.mcode as mcode, avg(chk_user.grade) as user_mean_grade from f
+            
             inner join chk_user on f.userid = chk_user.userid
         group by f.mcode
     ),
@@ -310,7 +322,7 @@ with
             where d.mcode in (select f.mcode from f)
         group by d.mcode
     ),
-    combined_results as (
+    combined_results as ( -- 전체 결과 테이블 반환 
         select 
             am.mcode,
             umg.user_mean_grade as user_mean_grade,
